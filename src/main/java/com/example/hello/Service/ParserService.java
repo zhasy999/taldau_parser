@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 
@@ -97,7 +98,7 @@ public class ParserService {
             return "Error";
         }
     }
-
+    @Scheduled(cron = "0 0 10 * * *")
     public void counter_house() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("counter_house");
         LOG.info(m, "counter_house - start");
@@ -111,7 +112,6 @@ public class ParserService {
         for (DataFormatter.Full f : fullList) {
             for ( ArrayList<Integer> r : regions) {
                 if (f.getTerms().get(0).equals(r.get(0)) && f.getTerms().get(1).equals(r.get(1))) {
-                    System.out.println(r.get(0));
                     List<DataFormatter.Periods> periodList = f.getPeriods();
                     for (DataFormatter.Periods p : periodList) {
                         if (!p.getValue().equalsIgnoreCase("x")) {
@@ -130,6 +130,7 @@ public class ParserService {
         LOG.info(m, "counter_house - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void counter_house_remote() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("counter_house_remote");
         LOG.info(m, "counter_house_remote - start");
@@ -162,7 +163,7 @@ public class ParserService {
         LOG.info(m, "counter_house_remote - end");
     }
 
-
+    @Scheduled(cron = "0 0 10 * * *")
     public void counter_personal() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("counter_personal");
         LOG.info(m, "counter_personal- start");
@@ -194,6 +195,7 @@ public class ParserService {
         LOG.info(m, "counter_personal - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void counter_personal_remote() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("counter_personal_remote");
         LOG.info(m, "counter_personal_remote- start");
@@ -226,6 +228,7 @@ public class ParserService {
         LOG.info(m, "counter_personal_remote - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void sewerage() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("sewerage");
         LOG.info(m, "sewerage - start");
@@ -258,6 +261,7 @@ public class ParserService {
         LOG.info(m, "sewerage - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void sewerage_need_repair() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("sewerage_need_repair");
         LOG.info(m, "sewerage_need_repair - start");
@@ -289,6 +293,7 @@ public class ParserService {
         LOG.info(m, "sewerage_need_repair - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void water_pipes() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("water_pipes");
         LOG.info(m, "water_pipes - start");
@@ -320,6 +325,7 @@ public class ParserService {
         LOG.info(m, "water_pipes - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void water_pipes_construction() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("water_pipes_construction");
         LOG.info(m, "water_pipes_construction - start");
@@ -351,6 +357,7 @@ public class ParserService {
         LOG.info(m, "water_pipes_construction - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void water_pipes_construction_crash() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("water_pipes_construction_crash");
         LOG.info(m, "water_pipes_construction_crash - start");
@@ -382,6 +389,7 @@ public class ParserService {
         LOG.info(m, "water_pipes_construction_crash - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void water_pipes_crash() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("water_pipes_crash");
         LOG.info(m, "water_pipes_crash - start");
@@ -413,6 +421,7 @@ public class ParserService {
         LOG.info(m, "water_pipes_crash - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void water_pipes_need_repair() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("water_pipes_need_repair");
         LOG.info(m, "water_pipes_need_repair - start");
@@ -444,6 +453,7 @@ public class ParserService {
         LOG.info(m, "water_pipes_need_repair - end");
     }
 
+    @Scheduled(cron = "0 0 10 * * *")
     public void water_pipes_net() throws ParseException, IOException {
         Marker m = MarkerFactory.getMarker("water_pipes_net");
         LOG.info(m, "water_pipes_net - start");
